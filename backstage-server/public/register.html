@@ -1,0 +1,43 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-05 14:38:08
+ * @LastEditTime: 2019-09-05 15:39:17
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+</head>
+
+<body>
+    <div>
+        用户名: <input id="lname" type="text">
+        登录名: <input id="uname" type="text">
+        密码: <input id="pw" type="password">
+        <button id="mbtn">提交</button>
+    </div>
+
+    <script>
+        document.getElementById('mbtn').onclick = function () {
+
+            let user = {
+                lname: document.getElementById('lname').value,
+                uname: document.getElementById('uname').value,
+                pw: document.getElementById('pw').value,
+            }
+            axios.post('/goods/registe', user)
+                .then(function (s) {
+                    console.log(s.data);
+                })
+        }
+    </script>
+</body>
+
+</html>

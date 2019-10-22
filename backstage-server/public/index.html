@@ -1,0 +1,137 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-05 09:17:34
+ * @LastEditTime: 2019-09-23 20:29:11
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <script src="./lib/axios.js"></script>
+
+</head>
+
+<body>
+    <form>
+        <div>
+            商品<input type="text" id='m1'><br>
+            图片<input type="text" id='m2'><br>
+            描述<textarea cols="30" rows="10" id='m3'></textarea><br>
+            价格<input type="number" id='m4'><br>
+            库存<input type="number" id='m5'><br>
+        </div>
+    </form>
+    <button id="btn">添加</button>
+    <button id="btn2">查看</button>
+    <button id="btn3">改</button>
+    <button id="btn4">删</button>
+    <div style="background: red"></div>
+    <table border>
+        <thead>
+            <th>商品名称</th>
+            <th>商品图片</th>
+            <th>描述</th>
+            <th>库存</th>
+            <th>价格</th>
+        </thead>
+        <tbody id="tb">
+
+
+        </tbody>
+    </table>
+    <script>
+        var btn = document.getElementById('btn');
+        var btn2 = document.getElementById('btn2');
+        var btn3 = document.getElementById('btn3');
+        //查
+        btn2.onclick = function () {
+            init();
+        }
+        btn3.onclick = function () {
+            
+            // const ml = {,  };
+            const ml ={a:{price: 1},b:{$set: {price: 777779}}}
+            axios.post('/goods/updategoodslist', ml).then(function (s) {
+            }).catch(function (e) {
+                console.log(e);
+            })
+            
+        }
+        //删
+        btn4.onclick = function () {
+            const ml = { price: { $eq: 44 } };
+            axios.post('/goods/removegoodslist', ml).then(function (s) {
+            }).catch(function (e) {
+                console.log(e);
+            })
+
+        }
+        //增
+        btn.onclick = function () {
+            console.log(1012)
+            document.getElementById('m1').value;
+            document.getElementById('m2').value;
+            document.getElementById('m3').value;
+            document.getElementById('m4').value;
+            document.getElementById('m5').value;
+            const goods = {
+                name: document.getElementById('m1').value,
+                picUrl: document.getElementById('m2').value,
+                desc: document.getElementById('m3').value,
+                price: (document.getElementById('m4').value) * 1,
+                count: (document.getElementById('m5').value) * 1,
+            }
+            console.log(goods);
+
+            axios.post('/goods/insertgoodslist', goods).then(function (s) {
+                console.log('----------');
+                console.log('----------');
+                console.log(s.data.success);
+
+                if (!(s.data.success)) {
+                    alert('对不起,您无权操作....')
+                }
+            }).catch(function (e) {
+                console.log(e);
+            })
+        }
+
+
+
+
+
+        function init() {
+            axios.get('/goods/getlist')
+                .then(function (res) {
+                    console.log(res);
+                    console.log(res.data);
+                    let tb = document.getElementById('tb');
+                    for (const item of res.data) {
+                        let tr = document.createElement('tr');
+                        tr.innerHTML = `
+        <td>${item.name}</td>
+            <td> <img style="height: 100px; width: 100px;" 
+                 src="${item.picUrl}"> </td>
+            <td>${item.desc}</td>
+            <td>￥${item.price}</td>
+            <td>${item.count}</td>
+        `
+                        tb.appendChild(tr);
+                    }
+
+                }).catch(function (e) {
+                    console.log(e);
+                })
+
+        }
+    </script>
+</body>
+
+</html>

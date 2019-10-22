@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-10-21 15:47:27
- * @LastEditTime: 2019-10-21 21:42:00
+ * @LastEditTime: 2019-10-22 09:51:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Editm
  * @FilePath: /c:\Users\qf\Desktop\backstage-system\src\App.js
@@ -24,7 +24,7 @@ class App extends React.Component {
     const show = b ? <Mlayout /> : <Registe />;
     return (
       <div className="App">
-        xxxxxxxxxxx
+ 
         {show}
       </div>
     );

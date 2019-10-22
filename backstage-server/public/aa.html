@@ -1,0 +1,58 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-05 16:03:08
+ * @LastEditTime: 2019-10-21 20:14:48
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+</head>
+
+<body>
+    <div>
+        用户名: <input id="lname" type="text">
+        登录名: <input id="uname" type="text">
+        密码: <input id="pw" type="password">
+        <button id="send">发送</button>
+        <button id="mbtn">登录</button>
+    </div>
+
+    <script>
+        document.getElementById('send').onclick = function () {
+            console.log(123)
+            let code = Math.floor(Math.random() * 9000) + 1000; 
+            let user = {
+          
+                username: document.getElementById('uname').value,
+                pw: code+"",
+            }
+            console.log(user);
+            
+            axios.post('/bsystem/registe', user)
+                .then(function (s) {
+                    console.log(s.data);
+                })
+        }
+        document.getElementById('mbtn').onclick = function () {
+
+            let user = {
+                lname: document.getElementById('lname').value,
+                uname: document.getElementById('uname').value,
+                pw: document.getElementById('pw').value,
+            }
+            axios.post('/goods/login', user)
+                .then(function (s) {
+                    console.log(s.data);
+                })
+        }
+    </script>
+</body>
+
+</html>
