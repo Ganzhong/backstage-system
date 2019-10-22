@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-10-21 20:19:47
- * @LastEditTime: 2019-10-21 21:50:35
+ * @LastEditTime: 2019-10-22 15:32:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /c:\Users\qf\Desktop\aaaaaaaaaaaaa\backstage-system\src\userlogin\mregiste.js
@@ -15,7 +15,8 @@ export class Registe extends React.Component {
 
     let user = {
       username: this.username.value,
-      pw: this.pw.value + ""
+      pw: this.pw.value + "",
+    
     };
     console.log(user);
     axios.post("/bsystem/registe", user).then(function(s) {
@@ -27,10 +28,19 @@ export class Registe extends React.Component {
       username: this.username.value,
       pw: this.pw.value + ""
     };
-    axios.post("/bsystem/login", user).then(function(s) {
+    axios.post("/bsystem/bsystem/insert_jswt", user).then(function(s) {
       console.log(s.data);
     });
   }
+  btn3() {
+    axios
+      .get("/bsystem/getjswt") 
+      .then(res => {
+     console.log(res.data);
+        
+      })
+    }
+  
 
   render() {
     return (
@@ -60,6 +70,14 @@ export class Registe extends React.Component {
           }}
         >
           登录
+        </button>
+       
+        <button
+          onClick={() => {
+            this.btn3();
+          }}
+        >
+          recedata
         </button>
       </div>
     );

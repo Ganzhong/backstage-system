@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-04 21:33:23
- * @LastEditTime: 2019-10-21 20:00:14
+ * @LastEditTime: 2019-10-22 14:57:02
  * @LastEditors: Please set LastEditors
  */
 //mongodb数据库 增 删 查 改 的封装 并链接数据库
@@ -15,6 +15,18 @@ const biao = 'datalist';//表名
 
 // 用户登录用
 const biao2 = 'userlist';//表名
+const nmts = 'nmts';//表名
+const jswt = 'jswt';//表名
+const xmsc = 'xmsc';//表名
+const vip = 'vip';//表名
+const xyzb = 'xyzb';//表名
+const wdzl = 'wdzl';//表名
+const jfmx = 'jfmx';//表名
+const cjks = 'cjks';//表名
+const xypj = 'xypj';//表名
+const jxcp = 'jxcp';//表名
+const xyqj = 'xyqj';//表名
+const xywj = 'xywj';//表名
 
 let cacheClient;  // 设置一个 客户端连接 缓存对象
 
@@ -51,11 +63,69 @@ async function getgoodslist(filter, pageNo, pageSize) {
         });
     })
 }
-async function getgoodslist2(filter) {
+async function getnmts(filter) {
     const client = await getClient();
     const testDB = client.db(mydb);
+    return getPromise(filter, nmts, testDB)
+}
+async function getjswt(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, jswt, testDB)
+}
+async function getxmsc(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, xmsc, testDB)
+}
+async function getvip(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, vip, testDB)
+}
+async function getxyzb(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, xyzb, testDB)
+}
+async function getwdzl(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, wdzl, testDB)
+}
+async function getjfmx(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, jfmx, testDB)
+}
+async function getcjks(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, cjks, testDB)
+}
+async function getxypj(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, xypj, testDB)
+}
+async function getjxcp(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, jxcp, testDB)
+}
+async function getxyqj(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, xyqj, testDB)
+}
+async function getxywj(filter) {
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return getPromise(filter, xywj, testDB)
+}
+function getPromise(filter,mbiao,testDB) { 
     return new Promise(function (resolve, reject) {
-        testDB.collection(biao).find(filter).toArray(function (err, result) {
+        testDB.collection(mbiao).find(filter).toArray(function (err, result) {
             if (err) {
                 reject(err);
                 return;
@@ -101,17 +171,79 @@ async function removegoodslist(filter) { //给条件 通过 id 来删除
     });
 }
 //增单条数据
+// const insertgoodslist = insertdata(null, 'tousu');
 async function insertgoodslist(list) { //给json {name:"xx",age:11}
-
     const client = await getClient();
     const testDB = client.db(mydb);
-    return new Promise(function (resolve, reject) {
-        testDB.collection(biao).insertOne(list, function (err, cmdResult) {
+    return mPromise(list,biao2,testDB)
+}
+async function insert_nmts(list) { //给json {name:"xx",age:11}
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,nmts,testDB)
+}
+async function insert_jswt(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,jswt,testDB)
+}
+async function insert_xmsc(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,xmsc,testDB)
+}
+async function insert_vip(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,vip,testDB)
+}
+async function insert_xyzb(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,xyzb,testDB)
+}
+async function insert_wdzl(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,wdzl,testDB)
+}
+async function insert_jfmx(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,jfmx,testDB)
+}
+async function insert_cjks(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,cjks,testDB)
+}
+async function insert_xypj(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,xypj,testDB)
+}
+async function insert_jxcp(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,jxcp,testDB)
+}
+async function insert_xyqj(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,xyqj,testDB)
+}
+async function insert_xywj(list) { 
+    const client = await getClient();
+    const testDB = client.db(mydb);
+    return mPromise(list,xywj,testDB)
+}
+const mPromise =function(list,mbiao,testDB) { 
+    new Promise(function (resolve, reject) {
+        testDB.collection(mbiao).insertOne(list, function (err, cmdResult) {
         // testDB.collection(biao).inser{
             if (err) {
                 return reject(err)
             }
-
             resolve({
                 success: cmdResult.insertedCount === 1,
                 id: cmdResult.insertedId
@@ -172,7 +304,7 @@ async function userlogin(filter, pageNo, pageSize) {
 
 module.exports = {
     getgoodslist, //查
-    getgoodslist2,//查2
+    getnmts,//getnmts
     updategoodslist,//改
     insertgoodslist, //增
     insertgoodslist2, //增2
@@ -180,4 +312,29 @@ module.exports = {
 
     userlogin, //用户登录
     insertuser, //用户注册
+    insert_nmts,//匿名投诉
+    insert_jswt,//技术问题
+    insert_xmsc,//项目上传
+    insert_vip,//vip
+    insert_xyzb,//学员周报
+    insert_wdzl,//我的资料
+    insert_jfmx,//交费明细
+    insert_cjks,//参加考试
+    insert_xypj,//学员评价
+    insert_jxcp,//教学测评
+    insert_xyqj,//学员请假
+    insert_xywj,//学员违纪
+    
+    getnmts,
+    getjswt,
+    getxmsc,
+    getvip,
+    getxyzb,
+    getwdzl,
+    getjfmx,
+    getcjks,
+    getxypj,
+    getjxcp,
+    getxyqj,
+    getxywj,
 };
