@@ -1,0 +1,85 @@
+
+.xyqjbox{
+    text-align: left;
+    padding-top: 20px;
+    border: 1px solid #6FB3E0;
+}
+.mspan{
+    display: inline-block;
+    margin:  0 20px 0 125px;
+    color: red;
+    vertical-align: top;
+}
+.nameinput{
+    width: 150px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.mtextArea{
+height: 90px;
+    width: 590px;
+    margin-bottom: 20px;
+
+}
+.mdate .mdate2{
+    width: 120px;
+    height: 30px;
+}
+.ms1 .ms11{width: 48px;
+    /* background: red; */
+    height: 30px;
+    margin: 0 5px;
+}
+.ms1>Option{width: 48px;
+    height: 30px;
+
+}
+.ms2 .ms22{
+    /* width: 48px; */
+    height: 30px;
+}
+.btnsure{
+    width: 85px;
+    height: 40px;
+    margin: 76px 120px 20px 300px;
+}
+.btnback{
+    width: 85px;
+    height: 40px;
+}
+table{
+    margin-top: 20px;
+}
+table tr>td{
+    border: 1px solid black;
+}
+.th1{
+    border: 1px solid black;
+    height: 35px;
+    width: 75px;
+}
+.th2{
+    border: 1px solid black;
+    height: 35px;
+    width: 514px;
+}
+.th3{
+    border: 1px solid black;
+    height: 35px;
+    width: 102px;
+}
+.th4{
+    border: 1px solid black;
+    height: 35px;
+    width: 75px;
+}
+.th5{
+    border: 1px solid black;
+    height: 35px;
+    width: 340px;
+}
+.th6{
+    border: 1px solid black;
+    height: 35px;
+    width: 200px;
+}

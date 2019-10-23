@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2019-10-21 17:01:49
+ * @LastEditTime: 2019-10-23 17:46:56
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2019-10-21 17:01:05
  * @LastEditors: Please set LastEditors
@@ -12,4 +12,5 @@
     }
     
 }
+    
 export default getid(100)

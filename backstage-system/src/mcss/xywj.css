@@ -1,0 +1,42 @@
+
+table{
+    margin-top: 20px;
+}
+table tr>td{
+    border: 1px solid black;
+}
+.th1{
+    border: 1px solid black;
+    height: 35px;
+    width: 116px;
+}
+.th2{
+    border: 1px solid black;
+    height: 35px;
+    width: 175px;
+}
+.th3{
+    border: 1px solid black;
+    height: 35px;
+    width: 145px;
+}
+.th4{
+    border: 1px solid black;
+    height: 35px;
+    width: 116px;
+}
+.th5{
+    border: 1px solid black;
+    height: 35px;
+    width: 290px;
+}
+.th6{
+    border: 1px solid black;
+    height: 35px;
+    width: 145px;
+}
+.th7{
+    border: 1px solid black;
+    height: 35px;
+    width: 290px;
+}
