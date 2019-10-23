@@ -39,42 +39,40 @@ export class Registe extends React.Component {
       pw: this.pw.value + ""
     };
     axios.post("/bsystem/login", user).then(function(s) {
-      console.log(s.data);
+	  console.log(s.data);
+    window.location.reload();
+    
     });
   }
-  btn3() {
-    axios
-      .get("/bsystem/getjswt") 
-      .then(res => {
-     console.log(res.data);
-        
-      })
-    }
+ 
   
 
   render() {
     return (
       <div>
-        <input
+      <div className="big">
+		  <div className="box">
+			  <h1>学生后台管理系统</h1>
+        <input className="input1" placeholder="身份证/学号"
           type="text"
           ref={username => {
             this.username = username;
           }}
         />
-        <input
-          type="text"
+        <input className="input2" placeholder="密码" 
+          type="password"
           ref={pw => {
             this.pw = pw;
           }}
         />
-        <button
+        <button className="b1"
           onClick={() => {
             this.btn();
           }}
         >
           注册
         </button>
-        <button
+        <button className="b2"
           onClick={() => {
             this.btn2();
           }}
@@ -82,13 +80,9 @@ export class Registe extends React.Component {
           登录
         </button>
        
-        <button
-          onClick={() => {
-            this.btn3();
-          }}
-        >
-          recedata
-        </button>
+        
+		</div>
+    </div>
       </div>
     );
   }

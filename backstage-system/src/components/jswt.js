@@ -4,6 +4,8 @@ class JSWT extends React.Component {
     constructor(props) {
         super(props);
         this.inputRef = React.createRef();
+        console.log("00000")
+        console.log(this.inputRef)
         this.textRef = React.createRef();
         this.state = {
             data: []
