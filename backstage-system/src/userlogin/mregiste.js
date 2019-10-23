@@ -38,7 +38,7 @@ export class Registe extends React.Component {
       username: this.username.value,
       pw: this.pw.value + ""
     };
-    axios.post("/bsystem/bsystem/insert_jswt", user).then(function(s) {
+    axios.post("/bsystem/login", user).then(function(s) {
       console.log(s.data);
     });
   }
