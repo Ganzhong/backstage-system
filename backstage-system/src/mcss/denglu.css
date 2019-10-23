@@ -1,9 +1,15 @@
 body{
-	background-image:url(bg.gif);
 	
-	text-align: center;
+	
+	
 	position: relative;
 	
+}
+.big{
+	text-align: center;
+	height: 700px;
+	width: 100%;
+	background-image:url(bg.gif);
 }
 
 .box{

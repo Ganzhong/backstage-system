@@ -4,19 +4,33 @@ class JSWT extends React.Component {
     constructor(props) {
         super(props);
         this.inputRef = React.createRef();
+        console.log("00000")
+        console.log(this.inputRef)
         this.textRef = React.createRef();
         this.state = {
             data: []
         }
+    }
+    
+    componentDidMount(){
+        this.getdate();
+    }
+    getdate(){
+        axios.get("/bsystem/getjswt").then(res => {
+            //console.log(res.data);
+            this.setState({
+                data: res.data
+            })
+        })
     }
     add() {
         let timer = new Date().toLocaleString();
         let aa = this.inputRef.current.value;
         let bb = this.textRef.current.value;
         let user = { name: aa, ques: bb, time: timer, res: '(0)' };
-        axios.post("/bsystem/insert_jswt", user).then(function (s) {
+        axios.post("/bsystem/insert_jswt", user).then( (s) =>{
             //console.log(s.data);
-      
+            this.getdate();
         });
 
         this.inputRef.current.value = '';
@@ -26,12 +40,7 @@ class JSWT extends React.Component {
     }
 
     render() {
-        axios.get("/bsystem/getjswt").then(res => {
-            //console.log(res.data);
-            this.setState({
-                data: res.data
-            })
-        })
+        
         let lis = this.state.data.map((item) => {
             return (
                 <tr key={item.time}>
