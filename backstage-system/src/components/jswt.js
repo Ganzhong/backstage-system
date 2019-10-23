@@ -4,40 +4,46 @@ class JSWT extends React.Component {
     constructor(props) {
         super(props);
         this.inputRef = React.createRef();
+        console.log("00000")
+        console.log(this.inputRef)
         this.textRef = React.createRef();
         this.state = {
             data: []
         }
     }
-    add() {
-        let timer = new Date().toLocaleString();
-        let aa = this.inputRef.current.value;
-        let bb = this.textRef.current.value;
-        let user = { name: aa, ques: bb, time: timer, res: '(0)' };
-        axios.post("/bsystem/insert_jswt", user).then(function (s) {
-            //console.log(s.data);
-      
-        });
-
-        this.inputRef.current.value = '';
-        this.textRef.current.value = '';
-
-
+    componentDidMount(){
+        this.getData();
     }
 
-    render() {
+    getData() {
         axios.get("/bsystem/getjswt").then(res => {
             //console.log(res.data);
             this.setState({
                 data: res.data
             })
         })
+    }
+    add() {
+        let timer = new Date().toLocaleString();
+        let aa = this.inputRef.current.value;
+        let bb = this.textRef.current.value;
+        let user = { name: aa, ques: bb, time: timer, res: '(0)' };
+        axios.post("/bsystem/insert_jswt", user).then( (s) => {
+            //console.log(s.data);
+           this.getData();
+        });
+        this.inputRef.current.value = '';
+        this.textRef.current.value = '';
+    }
+
+    render() {
+        
         let lis = this.state.data.map((item) => {
             return (
                 <tr key={item.time}>
                     <td style={{ width: '150px', border: 'solid 1px gray', textAlign: 'center' }}>{item.name}</td>
                     <td style={{ width: '500px', border: 'solid 1px gray' }}>{item.ques}</td>
-                    <td style={{ width: '200px', border: 'solid 1px gray' }}>{item.time}</td>
+                    <td style={{ width: '150px', border: 'solid 1px gray' }}>{item.time}</td>
                     <td style={{ width: '150px', border: 'solid 1px gray', textAlign: 'center' }}>{item.res}</td>
                 </tr>
             )

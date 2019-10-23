@@ -40,7 +40,8 @@ export class Registe extends React.Component {
     };
     axios.post("/bsystem/login", user).then(function(s) {
 	  console.log(s.data);
-	  window.location.reload();
+    window.location.reload();
+    
     });
   }
  
@@ -49,6 +50,7 @@ export class Registe extends React.Component {
   render() {
     return (
       <div>
+      <div className="big">
 		  <div className="box">
 			  <h1>学生后台管理系统</h1>
         <input className="input1" placeholder="身份证/学号"
@@ -80,6 +82,7 @@ export class Registe extends React.Component {
        
         
 		</div>
+    </div>
       </div>
     );
   }

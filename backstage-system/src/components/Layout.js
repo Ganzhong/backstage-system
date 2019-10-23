@@ -76,8 +76,8 @@ export class Mlayout extends React.Component {
     })
   }
   render() {
-    console.log('**/*------------');
-    console.log(this.state.layoutlist);
+    //console.log('**/*------------');
+    //console.log(this.state.layoutlist);
     const menulist = this.state.layoutlist.map(item => {
       return (
         <SubMenu
