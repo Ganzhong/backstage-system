@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-10-22 19:09:46
- * @LastEditTime: 2019-10-23 18:06:14
+ * @LastEditTime: 2019-10-23 19:35:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \backstage-system\backstage-system\src\components\xyqj.js
@@ -13,10 +13,6 @@ import axios from "axios";
 import "antd/dist/antd.css";
 import "../mcss/xyqj.css";
 const { TextArea } = Input;
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
-// import moment from 'moment';
-// import 'moment/locale/zh-cn';
-// moment.locale('zh-cn');
 const { Option } = Select;
 
 class XYQJ extends React.Component {
@@ -204,7 +200,7 @@ class XYQJ extends React.Component {
               <th className="th3">班主任审批</th>
               <th className="th4">讲师审批</th>
               <th className="th5">请假时间</th>
-              <th className="th6">创建时间</th>
+              <th className="qth6">创建时间</th>
             </tr>
             {
               this.state.datalist.map((list) => { 

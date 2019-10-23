@@ -1,6 +1,6 @@
 
 .xyqjbox{
-    text-align: left;
+   
     padding-top: 20px;
     border: 1px solid #6FB3E0;
 }
@@ -48,6 +48,7 @@ height: 90px;
     height: 40px;
 }
 table{
+    text-align: center;
     margin-top: 20px;
 }
 table tr>td{
@@ -78,7 +79,7 @@ table tr>td{
     height: 35px;
     width: 340px;
 }
-.th6{
+.qth6{
     border: 1px solid black;
     height: 35px;
     width: 200px;

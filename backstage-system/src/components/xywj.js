@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-10-22 19:09:46
- * @LastEditTime: 2019-10-23 18:05:46
+ * @LastEditTime: 2019-10-23 19:30:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \backstage-system\backstage-system\src\components\xywj.js
@@ -9,7 +9,7 @@
 import React from "react";
 import axios from 'axios';
 import '../mcss/xywj.css';
-import getcount from '../utils/getid';
+
 class XYWJ extends React.Component {
     constructor(props) { 
         super(props)
